@@ -9,5 +9,11 @@ export const db = new DatabaseSync(join(__dirname, 'baroque.db'));
 
 db.exec('PRAGMA journal_mode = WAL');
 
-const seed = readFileSync(join(__dirname, 'baroque-seed.sql'), 'utf8');
-db.exec(seed);
+const alreadySeeded = db.prepare(
+  "SELECT name FROM sqlite_master WHERE type='table' AND name='periods'"
+).get();
+
+if (!alreadySeeded) {
+  const seed = readFileSync(join(__dirname, 'baroque-seed.sql'), 'utf8');
+  db.exec(seed);
+}
