@@ -1,21 +1,9 @@
 <div class="page">
   <header class="hero">
+    <p class="era">1600 &ndash; 1750</p>
     <h1>Baroque Explorer</h1>
-    <p class="subtitle">1600 &ndash; 1750 &nbsp;&middot;&nbsp; The Age of Drama</p>
+    <p class="tagline">
+      An age of drama, shadow, and light. Select a decade below to begin.
+    </p>
   </header>
-
-  <section class="timeline-section">
-    <p class="instruction">Select a decade to explore</p>
-
-    <div class="track-wrapper">
-      <div class="track">
-        @for (period of periods(); track period.decade) {
-          <button class="decade-card" (click)="navigate(period.decade)">
-            <span class="year">{{ period.decade }}s</span>
-            <span class="label">{{ period.summary }}</span>
-          </button>
-        }
-      </div>
-    </div>
-  </section>
 </div>

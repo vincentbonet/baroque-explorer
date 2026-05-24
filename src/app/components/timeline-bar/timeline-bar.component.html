@@ -1,0 +1,35 @@
+<nav class="timeline-bar">
+  <div class="track-wrapper">
+    <div class="track">
+
+      <div class="line"></div>
+
+      @for (period of periods(); track period.decade; let i = $index) {
+        <div
+          class="stop"
+          [class.active]="activeDecade() === period.decade"
+          [class.hovered]="hoveredDecade() === period.decade"
+          (mouseenter)="hoveredDecade.set(period.decade)"
+          (mouseleave)="hoveredDecade.set(null)"
+          (click)="router.navigate(['/decade', period.decade])"
+        >
+          <div
+            class="dot"
+            [style.width.px]="dotSize(i, periods().length)"
+            [style.height.px]="dotSize(i, periods().length)"
+          ></div>
+
+          <span class="decade-label">{{ period.decade }}s</span>
+
+          @if (hoveredDecade() === period.decade) {
+            <div class="tooltip">
+              <span class="tooltip-year">{{ period.decade }}s</span>
+              <span class="tooltip-text">{{ period.summary }}</span>
+            </div>
+          }
+        </div>
+      }
+
+    </div>
+  </div>
+</nav>
