@@ -306,7 +306,7 @@ INSERT INTO events (year, title, description) VALUES
 
 -- 1730s
 (1730, 'Rococo dominant', 'The French Rococo, with its pastel colors, intimate scale, and playful decoration, has fully replaced grand Baroque in European court taste. Baroque retreats to churches and great public buildings.'),
-(1733, 'War of Polish Succession', 'A disputed election to the Polish throne triggers another European war involving France, Spain, Austria, and Russia. Two years of fighting redraw minor Italian boundaries.'),
+(1733, 'War of Polish Succession', 'The War of Polish Succession begins, involving Russia, Austria, and Prussia. It ends with the Treaty of Warsaw in 1735.'),
 (1735, 'Linnaeus'' Systema Naturae', 'The Swedish naturalist Carl Linnaeus publishes Systema Naturae, classifying living things into kingdoms, classes, orders, genera, and species. Modern biology has its framework.'),
 (1738, 'Herculaneum excavated', 'Workmen digging a well near Naples uncover the buried Roman town of Herculaneum. The discovery electrifies Europe and sets off a neoclassical revival in art and design.'),
 
