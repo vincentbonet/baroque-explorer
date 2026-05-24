@@ -194,29 +194,127 @@ INSERT INTO artworks (artist_id, title, year_created, medium, location, image_ur
 (19, 'The Temptation of Saint Anthony', 1645, 'Oil on canvas', 'Palazzo Pitti, Florence', 'https://commons.wikimedia.org/wiki/Special:FilePath/Salvator_Rosa_-_The_Temptation_of_St_Anthony_-_WGA20049.jpg', 'A grotesque demon menaces the praying saint in a dark cave. Rosa''s love of the bizarre and the horrific anticipates Gothic taste by a century.');
 
 INSERT INTO events (year, title, description) VALUES
-(1600, 'Caravaggio in Rome', 'Caravaggio arrives in Rome. His revolutionary paintings begin to reshape Italian art with dramatic chiaroscuro and emotional intensity.'),
-(1604, 'Council of Trent Impact', 'Counter-Reformation Church demands religious art that emotionally engages believers. Caravaggio exemplifies this demand perfectly.'),
-(1606, 'Caravaggio Flees Rome', 'After killing a man in a brawl, Caravaggio flees Rome. He spends his final years in Naples, Malta, and Sicily, always on the run.'),
-(1610, 'Caravaggio Dies', 'Michelangelo Merisi (Caravaggio) dies in Porto Ercole at age 38. Despite his short life, he revolutionized European painting.'),
-(1615, 'Rembrandt Born', 'Rembrandt van Rijn born in Leiden. He will become Amsterdam''s greatest artist and the Netherlands'' supreme master of light and psychology.'),
-(1620, 'Dutch Golden Age Begins', 'Dutch independence from Spain consolidated. Wealth from trade fuels art market. Amsterdam becomes art world capital. Dutch Golden Age dawns.'),
-(1622, 'Vermeer Born', 'Johannes Vermeer born in Delft. He will create only ~36 paintings but become immortal for their perfect light and intimate wisdom.'),
-(1632, 'Judith Leyster''s Studio', 'Judith Leyster runs successful independent studio in Haarlem. One of few women to do so. Master of genre scenes and self-portraits.'),
-(1635, 'Rembrandt''s Success', 'Rembrandt established as Amsterdam''s most sought-after portrait painter. Wealthy, famous, at his peak. He runs large workshop.'),
-(1640, 'Civil War in England', 'English Civil War begins. Disrupts royal patronage. Van Dyck dies. Political upheaval affects art markets across Europe.'),
-(1648, 'Peace of Westphalia', 'Thirty Years'' War ends. Spanish, Dutch, and French powers reconfigure. Art centers shift. Dutch independence secured.'),
-(1656, 'Las Meninas Painted', 'Velázquez completes Las Meninas, considered by many the greatest painting ever made. Meta-painting of supreme compositional genius.'),
-(1660, 'Rembrandt''s Decline', 'Rembrandt financially ruined. Declared bankrupt. Forced to sell his collection. But his late paintings are among his most profound.'),
-(1661, 'Vermeer''s View of Delft', 'Vermeer paints View of Delft. One of the most perfect landscape paintings ever made. Soft northern light, perfect composition.'),
-(1665, 'London Plague and Fire', 'Great Plague kills 100,000 Londoners. Year later, Great Fire destroys the City. Art patronage disrupted temporarily.'),
-(1669, 'Rembrandt Dies', 'Rembrandt dies in Amsterdam, poor but creatively undiminished. His late paintings achieve unprecedented depth of human insight.'),
-(1675, 'Vermeer Dies', 'Vermeer dies in Delft, leaving ~36 paintings. Quickly forgotten. Rediscovered in 19th century. Now immortal.'),
-(1680, 'Bernini Dies', 'Gian Lorenzo Bernini dies in Rome at 82. He dominated Roman Baroque for 60 years. Supreme sculptor and architect.'),
-(1685, 'Louis XIV Revokes Edict of Nantes', 'French king revokes religious tolerance. Protestant refugees flee to Dutch Republic and England. Art patronage shifts again.'),
-(1700, 'Baroque to Rococo Transition', 'Baroque still dominates but Rococo emerging in French court. Two styles coexist. Grand drama morphs toward lighter elegance.'),
-(1715, 'Louis XIV Dies', 'Death of Sun King. Rococo takes over French taste. Intimate, decorative, playful. Baroque''s dramatic intensity fades in France.'),
-(1730, 'Rococo Dominance', 'Rococo fully ascendant in European courts. Baroque relegated to churches and grand public buildings. Neoclassicism theorized.'),
-(1748, 'Excavation of Pompeii Begins', 'Pompeii and Herculaneum excavated. Classical Roman art discovered. Neoclassical movement gains momentum. Baroque''s reign nearing end.');
+-- 1600s
+(1600, 'Caravaggio in Rome', 'Caravaggio unveils the Contarelli Chapel paintings in Rome. His revolutionary chiaroscuro and street-level realism redefine what religious art can look like.'),
+(1600, 'Giordano Bruno burned', 'The philosopher Giordano Bruno is burned at the stake in Rome''s Campo de'' Fiori for heresy, including teaching that the stars are distant suns with their own planets.'),
+(1602, 'Bodleian Library opens', 'Sir Thomas Bodley''s rebuilt library opens at Oxford with 2,500 volumes. It will become one of the great research libraries of Europe.'),
+(1603, 'Death of Elizabeth I', 'The Virgin Queen dies childless after 44 years on the English throne. James VI of Scotland takes the crown as James I, uniting the kingdoms.'),
+(1604, 'Counter-Reformation art', 'The Catholic Church, still reeling from the Protestant Reformation, demands emotionally engaging religious imagery. Caravaggio and his followers answer the call.'),
+(1605, 'Don Quixote published', 'Miguel de Cervantes publishes Part One of Don Quixote in Madrid. The book invents the modern novel and instantly becomes Europe''s most popular fiction.'),
+(1606, 'Caravaggio kills a man', 'After a dispute on a Roman tennis court turns into a sword fight, Caravaggio kills Ranuccio Tomassoni and flees the city. He will never return.'),
+(1607, 'Monteverdi''s Orfeo', 'Claudio Monteverdi premieres L''Orfeo at the Mantuan court. It is the first opera that has remained in the modern repertoire — Baroque music is born.'),
+(1609, 'Galileo''s telescope', 'Galileo Galilei improves the spyglass into a 30-power telescope and turns it on the night sky. He will discover Jupiter''s moons within months.'),
+(1609, 'Twelve Years'' Truce', 'Spain and the Dutch Republic sign a truce halting (temporarily) the Eighty Years'' War. Dutch trade explodes; the Golden Age accelerates.'),
+
+-- 1610s
+(1610, 'Henri IV assassinated', 'The French king Henri IV is stabbed to death by a Catholic fanatic on a Paris street. His widow Marie de'' Medici takes the regency and later commissions a vast cycle from Rubens.'),
+(1610, 'Caravaggio dies', 'Michelangelo Merisi da Caravaggio dies on a beach at Porto Ercole at thirty-eight, possibly of fever, possibly murdered. Painting has lost its most violent genius.'),
+(1614, 'Rubens'' Descent from the Cross', 'Rubens unveils his great altarpiece in Antwerp Cathedral. The painting confirms him as northern Europe''s leading artist and floods his workshop with commissions.'),
+(1615, 'Rembrandt born', 'Rembrandt van Rijn is born in Leiden, the ninth child of a prosperous miller. He will become the Netherlands'' supreme painter of light and human psychology.'),
+(1616, 'Shakespeare dies', 'William Shakespeare dies in Stratford-upon-Avon at fifty-two. His collected plays will be published seven years later in the First Folio.'),
+(1616, 'Galileo warned', 'The Roman Inquisition warns Galileo not to teach Copernican heliocentrism as truth. He agrees — for now.'),
+(1618, 'Thirty Years'' War begins', 'Protestant nobles throw two Catholic regents out a window in Prague. The Defenestration triggers a continent-wide religious war that will kill millions.'),
+(1619, 'Synod of Dort', 'Calvinist theologians from across Europe meet in the Dutch Republic and codify strict Reformed doctrine. Religious painting in the Netherlands declines; domestic subjects rise.'),
+
+-- 1620s
+(1620, 'Dutch Golden Age begins', 'With trade booming after the truce with Spain, Amsterdam becomes Europe''s wealthiest city. A vast middle-class art market emerges — paintings hang in every burgher''s home.'),
+(1620, 'Mayflower lands', 'English Separatists aboard the Mayflower establish Plymouth Colony on the Massachusetts coast, beginning the European colonization of New England.'),
+(1623, 'Bernini''s David', 'A 24-year-old Gian Lorenzo Bernini carves a marble David twisting at the moment of releasing his sling. Sculpture has not been this alive since antiquity.'),
+(1624, 'Hals'' Laughing Cavalier', 'Frans Hals paints the smirking young man in Haarlem who will become his most famous portrait. The brushwork is loose, fast, and immediate — a small revolution.'),
+(1625, 'Apollo and Daphne', 'Bernini completes Apollo and Daphne for Cardinal Borghese. Marble fingers turn into laurel leaves before the viewer''s eyes.'),
+(1626, 'St Peter''s consecrated', 'After 120 years of construction by Bramante, Michelangelo, Maderno and others, the new St Peter''s Basilica in Rome is finally consecrated by Pope Urban VIII.'),
+(1628, 'Velázquez meets Rubens', 'Rubens visits Madrid on a diplomatic mission and meets the young court painter Velázquez. He encourages Velázquez to travel to Italy — which he does the next year.'),
+
+-- 1630s
+(1630, 'Velázquez in Rome', 'Velázquez, on his first Italian journey, paints The Forge of Vulcan in Rome. He returns to Madrid with a transformed sense of color and light.'),
+(1632, 'Vermeer born', 'Johannes Vermeer is born in Delft, the son of an innkeeper and art dealer. He will produce only about thirty-six paintings in his entire life.'),
+(1632, 'The Anatomy Lesson', 'Rembrandt, twenty-six and newly arrived in Amsterdam, paints The Anatomy Lesson of Dr. Nicolaes Tulp. The group portrait makes his reputation overnight.'),
+(1632, 'Leyster''s studio opens', 'Judith Leyster, twenty-three, is admitted as a master to the Haarlem painters'' guild and opens her own studio. Very few women in 17th-century Europe will achieve this.'),
+(1633, 'Galileo on trial', 'Galileo is tried by the Roman Inquisition for advocating heliocentrism, forced to recant, and placed under house arrest for the rest of his life.'),
+(1635, 'Rembrandt at his peak', 'Rembrandt is Amsterdam''s most fashionable portrait painter, recently married to wealthy Saskia van Uylenburgh. He paints himself in costume jewelry and a fur cap.'),
+(1635, 'Surrender of Breda', 'Velázquez completes The Surrender of Breda for Madrid''s Hall of Realms. The defeated Dutch general is offered dignity — propaganda rendered with extraordinary tact.'),
+(1638, 'Et in Arcadia Ego', 'Poussin paints his second version of shepherds discovering a tomb in an idyllic landscape. The Latin inscription — "Even in Arcadia, I am" — is death speaking.'),
+(1639, 'Artemisia in England', 'Artemisia Gentileschi joins her father Orazio at the court of Charles I and paints her famous Self-Portrait as the Allegory of Painting.'),
+
+-- 1640s
+(1640, 'Rubens dies', 'Peter Paul Rubens dies in Antwerp at sixty-two, having outlived two wives and produced more than a thousand paintings. Northern Europe''s most successful painter is gone.'),
+(1641, 'Van Dyck dies', 'Anthony van Dyck dies in London at forty-one, just before the English Civil War destroys the courtly world he painted. His aristocratic portrait style outlives him by centuries.'),
+(1642, 'English Civil War', 'Parliament and King Charles I go to war. The conflict will end with the trial and execution of the king and the temporary abolition of the English monarchy.'),
+(1642, 'The Night Watch', 'Rembrandt completes his enormous militia portrait for an Amsterdam guard company. Months later his wife Saskia dies at thirty, leaving him with their infant son Titus.'),
+(1648, 'Peace of Westphalia', 'A series of treaties signed in Münster and Osnabrück end the Thirty Years'' War. Modern Europe''s system of sovereign states is essentially born here.'),
+(1648, 'French Royal Academy', 'Charles Le Brun and others establish the Royal Academy of Painting and Sculpture in Paris under royal protection. The state begins to dictate French artistic taste.'),
+(1649, 'Charles I executed', 'After trial by Parliament, King Charles I is beheaded outside the Banqueting House in Whitehall. England is a republic for the next eleven years.'),
+
+-- 1650s
+(1650, 'Velázquez paints the pope', 'Velázquez, in Rome on a second Italian journey, paints Pope Innocent X. The pope reportedly mutters "troppo vero" (too true) on seeing the result.'),
+(1652, 'Ecstasy of Saint Teresa', 'Bernini completes his Ecstasy of Saint Teresa in the Cornaro Chapel — a swooning nun pierced by an angel''s arrow, lit by a hidden window. Theatre as sculpture.'),
+(1653, 'Taj Mahal completed', 'Far from Europe, the great mausoleum to Mumtaz Mahal is completed at Agra after twenty-one years. Mughal Baroque, parallel to European.'),
+(1656, 'Las Meninas painted', 'Velázquez completes Las Meninas in the Alcázar palace — a meta-painting of the royal family, the artist himself, and the viewer. Many consider it the greatest painting ever made.'),
+(1656, 'Rembrandt bankrupt', 'Rembrandt, unable to repay loans on his Amsterdam house, files for insolvency. His art collection and possessions are auctioned over the next two years.'),
+(1658, 'The Milkmaid', 'Vermeer paints a servant girl pouring milk in a Delft kitchen. The painting is small, modest in subject, and one of the most quietly perfect works in Western art.'),
+(1659, 'Treaty of the Pyrenees', 'France and Spain end twenty-four years of war. The peace seals France''s rise as Europe''s dominant power and Spain''s long decline.'),
+
+-- 1660s
+(1660, 'Restoration of the monarchy', 'After eleven years of republican Commonwealth, Charles II returns to London as king. The arts revive; theatres reopen; women perform on the English stage for the first time.'),
+(1661, 'Louis XIV takes power', 'After Cardinal Mazarin''s death, the twenty-two-year-old Louis XIV announces he will rule France personally. His seventy-two-year reign will define absolute monarchy.'),
+(1661, 'View of Delft', 'Vermeer paints his home city across the harbor on a clear morning after rain. Marcel Proust will later call it the most beautiful painting in the world.'),
+(1665, 'The Great Plague', 'Bubonic plague kills an estimated 100,000 people in London — nearly a quarter of the population. The court flees to Oxford; the city shuts down for months.'),
+(1665, 'The Jewish Bride', 'The aging Rembrandt paints a couple in thick golden paint, with one hand resting tenderly on a chest. Late Rembrandt at his most quietly humane.'),
+(1666, 'Great Fire of London', 'A fire that begins in a Pudding Lane bakery destroys most of the medieval City of London in four days. Christopher Wren will rebuild St Paul''s Cathedral over the next forty-five years.'),
+(1666, 'Frans Hals dies', 'Frans Hals dies in Haarlem at eighty-four, possibly a charity case. His loose, brilliant brushwork will be ignored for two centuries before the Impressionists revive his reputation.'),
+(1667, 'St Peter''s Square colonnade', 'Bernini completes the great curving colonnade in front of St Peter''s Basilica — two arms reaching out, in his own words, to "embrace" arriving pilgrims.'),
+(1669, 'Rembrandt dies', 'Rembrandt dies in Amsterdam at sixty-three, almost forgotten by the fashionable. His last self-portraits and the Return of the Prodigal Son are among the greatest paintings ever made.'),
+
+-- 1670s
+(1670, 'Pascal''s Pensées', 'The mathematician Blaise Pascal''s scattered religious reflections are published posthumously as Pensées. "The heart has its reasons which reason knows not."'),
+(1672, 'Dutch Disaster Year', 'The Rampjaar: France, England, and two German bishoprics simultaneously invade the Dutch Republic. The art market collapses; Vermeer''s patrons stop buying paintings.'),
+(1675, 'Vermeer dies', 'Johannes Vermeer dies in Delft at forty-three, leaving his wife and eleven children deeply in debt. His name will be largely forgotten for the next two centuries.'),
+(1678, 'Murillo''s Immaculate Conception', 'Bartolomé Esteban Murillo paints his most famous Immaculate Conception in Seville. Soft light, ascending Virgin, swirling cherubs — Spanish Catholicism''s ideal image.'),
+
+-- 1680s
+(1680, 'Bernini dies', 'Gian Lorenzo Bernini dies in Rome at eighty-one, having shaped the city for sixty years under eight different popes. No sculptor since Michelangelo has had such influence.'),
+(1682, 'Claude Lorrain dies', 'Claude Lorrain dies in Rome at eighty-one. His luminous, idealized landscapes will define "scenic" beauty for English painters and aristocratic garden designers for centuries.'),
+(1682, 'Murillo''s fatal fall', 'Bartolomé Murillo falls from a scaffold while painting an altarpiece in Cádiz. He dies of his injuries some months later in Seville.'),
+(1685, 'Edict of Nantes revoked', 'Louis XIV revokes the Edict of Nantes, ending nearly a century of religious toleration in France. Hundreds of thousands of Protestant Huguenots flee to England, the Dutch Republic, and the Americas.'),
+(1685, 'A great year for music', 'Johann Sebastian Bach, George Frideric Handel, and Domenico Scarlatti are all born in 1685 — the late-Baroque musical revolution has its founders.'),
+(1687, 'Newton''s Principia', 'Isaac Newton publishes Philosophiæ Naturalis Principia Mathematica, setting out the laws of motion and universal gravitation. The Scientific Revolution has its central text.'),
+(1688, 'Glorious Revolution', 'William of Orange, invited by English Protestants, lands in Devon. The Catholic King James II flees to France. Parliamentary monarchy is established.'),
+
+-- 1690s
+(1692, 'Salem witch trials', 'A mass panic in Massachusetts Bay Colony leads to the execution of twenty people for witchcraft. The trials become a permanent symbol of religious hysteria.'),
+(1696, 'Tiepolo born', 'Giovanni Battista Tiepolo is born in Venice. He will become the supreme ceiling painter of the late Baroque, working for princes from Madrid to Würzburg.'),
+(1699, 'Treaty of Karlowitz', 'After sixteen years of war, the Ottoman Empire signs the Treaty of Karlowitz, ceding Hungary and large territories to the Habsburgs. The long Ottoman retreat from central Europe begins.'),
+
+-- 1700s
+(1700, 'Last Spanish Habsburg dies', 'The childless and disabled Charles II of Spain dies, bequeathing his throne to Louis XIV''s grandson. The other powers refuse to accept it — the War of the Spanish Succession begins.'),
+(1700, 'Baroque meets Rococo', 'Baroque still dominates major churches and palaces, but in the French court a lighter, more intimate decorative style — soon called Rococo — begins to emerge.'),
+(1704, 'Newton''s Opticks', 'Isaac Newton publishes Opticks, his treatise on light, color, and the rainbow. The book becomes one of the most influential scientific works of the century.'),
+(1705, 'Giordano dies', 'Luca Giordano, called "fa presto" for his almost supernatural speed, dies in Naples. His fluid late-Baroque frescoes had decorated churches and palaces from Italy to Spain.'),
+(1709, 'Battle of Poltava', 'Peter the Great of Russia decisively defeats Sweden''s Charles XII at Poltava in Ukraine. Russia replaces Sweden as the dominant northern power.'),
+
+-- 1710s
+(1711, 'Handel arrives in London', 'The young German composer George Frideric Handel arrives in London. He will spend the rest of his life there, becoming the dominant figure in English music.'),
+(1715, 'Louis XIV dies', 'After a 72-year reign — the longest in European history — the Sun King dies at Versailles. The court relaxes; the Régence loosens manners; Rococo takes hold.'),
+(1717, 'Pilgrimage to Cythera', 'Antoine Watteau completes his Pilgrimage to the Isle of Cythera. The painting defines the new French Rococo: elegant, sensual, dreamlike, melancholy.'),
+(1719, 'Robinson Crusoe', 'Daniel Defoe publishes Robinson Crusoe in London. Many consider it the first English novel; it is an immediate sensation.'),
+
+-- 1720s
+(1720, 'Plague of Marseille', 'Bubonic plague arrives by ship at Marseille and kills perhaps half the city''s population. It will be the last great plague outbreak in western Europe.'),
+(1721, 'Brandenburg Concertos', 'Johann Sebastian Bach completes his six Brandenburg Concertos in Köthen. They will become the most loved concertos of the entire Baroque era.'),
+(1725, 'The Four Seasons', 'Antonio Vivaldi publishes The Four Seasons in Amsterdam — four violin concertos with programmatic poems. The work is wildly popular across Europe.'),
+(1727, 'Newton dies', 'Isaac Newton dies in London at eighty-four and is buried in Westminster Abbey. Voltaire, present at the funeral, marvels that a country honored a scientist like a king.'),
+
+-- 1730s
+(1730, 'Rococo dominant', 'The French Rococo, with its pastel colors, intimate scale, and playful decoration, has fully replaced grand Baroque in European court taste. Baroque retreats to churches and great public buildings.'),
+(1733, 'War of Polish Succession', 'A disputed election to the Polish throne triggers another European war involving France, Spain, Austria, and Russia. Two years of fighting redraw minor Italian boundaries.'),
+(1735, 'Linnaeus'' Systema Naturae', 'The Swedish naturalist Carl Linnaeus publishes Systema Naturae, classifying living things into kingdoms, classes, orders, genera, and species. Modern biology has its framework.'),
+(1738, 'Herculaneum excavated', 'Workmen digging a well near Naples uncover the buried Roman town of Herculaneum. The discovery electrifies Europe and sets off a neoclassical revival in art and design.'),
+
+-- 1740s
+(1740, 'Maria Theresa inherits', 'Maria Theresa inherits the vast Habsburg dominions. Most of Europe immediately refuses to accept a female ruler, and the War of the Austrian Succession begins.'),
+(1741, 'Handel''s Messiah', 'In London, George Frideric Handel composes his oratorio Messiah in twenty-four days. Its first performance in Dublin the next year raises money for charity hospitals.'),
+(1748, 'Pompeii excavated', 'Excavations begin at the Roman city of Pompeii, buried by Vesuvius in 79 AD. Combined with Herculaneum, the discoveries fuel the Neoclassical movement that will overthrow the Baroque.'),
+(1748, 'Treaty of Aix-la-Chapelle', 'The Treaty ending the War of Austrian Succession largely restores prewar boundaries. Maria Theresa keeps her throne; Prussia keeps Silesia; everyone prepares for the next war.');
 
 INSERT INTO artist_periods (artist_id, decade) VALUES
 (1, 1600), (1, 1610),
