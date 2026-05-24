@@ -5,7 +5,11 @@
     </button>
 
     <div class="image-panel">
-      <img [src]="artwork.image_url" [alt]="artwork.title" />
+    <img
+      [src]="artwork.image_url"
+      [alt]="artwork.title"
+      (error)="onImageError($event)"
+    />
     </div>
 
     <aside class="info-panel">

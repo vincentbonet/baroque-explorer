@@ -1,14 +1,19 @@
 <article class="card" role="button" tabindex="0" (click)="open()" (keydown.enter)="open()">
   <div class="image-frame">
-    <img [src]="artwork.image_url" [alt]="artwork.title" />
+    <img
+    [src]="artwork().image_url"
+    [alt]="artwork().title"
+    loading="lazy"
+    (error)="onImageError($event)"
+    />
   </div>
 
   <figcaption class="caption">
-    <span class="title">{{ artwork.title }}</span>
+    <span class="title">{{ artwork().title }}</span>
 
     <span class="meta">
-      <span class="year">{{ artwork.year_created }}</span>
-      <span class="medium">{{ artwork.medium }}</span>
+      <span class="year">{{ artwork().year_created }}</span>
+      <span class="medium">{{ artwork().medium }}</span>
     </span>
 
     <span class="location">{{ artwork.location }}</span>
