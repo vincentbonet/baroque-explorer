@@ -16,13 +16,19 @@
         <h2>Works</h2>
         <div class="grid">
           @for (artwork of a.artworks; track artwork.id) {
-            <app-artwork-card [artwork]="artwork" />
+            <app-artwork-card [artwork]="artwork" (selected)="openArtwork($event)" />
           }
         </div>
       </section>
     } @else {
       <p class="empty">No artworks recorded for this artist.</p>
     }
+    @if (selectedArtwork) {
+      <app-artwork-lightbox
+        [artwork]="selectedArtwork"
+        (closed)="closeArtwork()"
+      />
+    }   
 
     @if (contemporaries().length > 0) {
       <section class="section">

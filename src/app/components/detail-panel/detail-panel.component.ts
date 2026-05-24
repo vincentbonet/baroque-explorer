@@ -1,20 +1,20 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { switchMap, map } from 'rxjs';
-import { ApiService } from '../../services/baroque-api.service';
-import { ArtistCardComponent } from '../artist-card/artist-card.component';
+import { map, switchMap } from 'rxjs';
+import { BaroqueApiService } from '../../services/baroque-api.service';
 import { ArtworkCardComponent } from '../artwork-card/artwork-card.component';
+import { ArtistCardComponent } from '../artist-card/artist-card.component';
 import { ArtworkLightboxComponent } from '../artwork-lightbox/artwork-lightbox.component';
-import { Artwork } from '../../models';
+import { Artist, Artwork } from '../../models';
 
 @Component({
   selector: 'app-detail-panel',
   standalone: true,
   imports: [
     RouterLink,
-    ArtistCardComponent,
     ArtworkCardComponent,
+    ArtistCardComponent,
     ArtworkLightboxComponent
   ],
   templateUrl: './detail-panel.component.html',
@@ -22,18 +22,22 @@ import { Artwork } from '../../models';
 })
 export class DetailPanelComponent {
   private route = inject(ActivatedRoute);
-  private api = inject(ApiService);
+  private api = inject(BaroqueApiService);
 
   selectedArtwork: Artwork | null = null;
 
-  artist = toSignal(
-    this.route.paramMap.pipe(
-      map(params => Number(params.get('id'))),
-      switchMap(id => this.api.getArtist(id))
-    )
+  private id$ = this.route.paramMap.pipe(
+    map(p => Number(p.get('id')))
   );
 
-  contemporaries = computed(() => this.artist()?.contemporaries ?? []);
+  artist = toSignal(
+    this.id$.pipe(switchMap(id => this.api.getArtist(id)))
+  );
+
+  contemporaries = toSignal(
+    this.id$.pipe(switchMap(id => this.api.getContemporaries(id))),
+    { initialValue: [] as Artist[] }
+  );
 
   openArtwork(artwork: Artwork) {
     this.selectedArtwork = artwork;

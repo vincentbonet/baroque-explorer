@@ -5,6 +5,8 @@ import { map, switchMap } from 'rxjs';
 import { BaroqueApiService } from '../../services/baroque-api.service';
 import { Artist, Event, Period } from '../../models';
 import { ArtistCardComponent } from '../artist-card/artist-card.component';
+import { ArtworkLightboxComponent } from '../artwork-lightbox/artwork-lightbox.component';
+import { Artwork } from '../../models';
 import { EventBadgeComponent } from '../event-badge/event-badge.component';
 
 @Component({
@@ -37,4 +39,14 @@ export class DecadeViewComponent {
     this.decade$.pipe(switchMap(d => this.api.getEvents(d))),
     { initialValue: [] as Event[] }
   );
+
+  selectedArtwork: Artwork | null = null;
+
+  openArtwork(artwork: Artwork) {
+    this.selectedArtwork = artwork;
+  }
+  
+  closeArtwork() {
+    this.selectedArtwork = null;
+  }
 }
