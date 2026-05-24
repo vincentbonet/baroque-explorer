@@ -1,1 +1,35 @@
+<div class="page">
+  <a class="back-link" routerLink="/">&larr; All decades</a>
 
+  @if (period(); as p) {
+    <header class="hero">
+      <h1>{{ p.decade }}s</h1>
+      <p class="summary">{{ p.summary }}</p>
+      <p class="context">{{ p.historical_context }}</p>
+    </header>
+  } @else {
+    <p class="loading">Loading&hellip;</p>
+  }
+
+  @if (artists().length > 0) {
+    <section class="section">
+      <h2>Artists</h2>
+      <div class="grid">
+        @for (artist of artists(); track artist.id) {
+          <app-artist-card [artist]="artist" />
+        }
+      </div>
+    </section>
+  }
+
+  @if (events().length > 0) {
+    <section class="section">
+      <h2>Events</h2>
+      <div class="events">
+        @for (event of events(); track event.id) {
+          <app-event-badge [event]="event" />
+        }
+      </div>
+    </section>
+  }
+</div>

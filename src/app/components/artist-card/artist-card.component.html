@@ -1,1 +1,11 @@
-
+<a class="card" [routerLink]="['/artist', artist().id]">
+  <div class="name-block">
+    <span class="name">{{ artist().name }}</span>
+    <span class="dates">{{ artist().birth_year }} &ndash; {{ artist().death_year }}</span>
+  </div>
+  <div class="meta">
+    <span class="nationality">{{ artist().nationality }}</span>
+    <span class="style">{{ artist().style }} Baroque</span>
+  </div>
+  <p class="bio">{{ artist().bio }}</p>
+</a>
