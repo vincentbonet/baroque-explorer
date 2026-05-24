@@ -1,0 +1,27 @@
+<div class="page">
+  <a class="back-link" routerLink="/">&larr; All decades</a>
+
+  @if (artist(); as a) {
+    <header class="hero">
+      <h1>{{ a.name }}</h1>
+      <p class="dates">{{ a.birth_year }} &ndash; {{ a.death_year }}</p>
+      <p class="style">{{ a.nationality }} &middot; {{ a.style }} Baroque</p>
+      <p class="bio">{{ a.bio }}</p>
+    </header>
+
+    @if (a.artworks && a.artworks.length > 0) {
+      <section class="section">
+        <h2>Works</h2>
+        <div class="grid">
+          @for (artwork of a.artworks; track artwork.id) {
+            <app-artwork-card [artwork]="artwork" />
+          }
+        </div>
+      </section>
+    } @else {
+      <p class="empty">No artworks recorded for this artist.</p>
+    }
+  } @else {
+    <p class="loading">Loading&hellip;</p>
+  }
+</div>
