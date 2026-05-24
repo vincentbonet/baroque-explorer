@@ -1,1 +1,19 @@
 
+<figure class="card">
+  <div class="image-frame">
+    <img
+      [src]="artwork().image_url"
+      [alt]="artwork().title"
+      loading="lazy"
+    />
+  </div>
+  <figcaption class="caption">
+    <h3 class="title">{{ artwork().title }}</h3>
+    <p class="meta">
+      <span class="year">{{ artwork().year_created }}</span>
+      <span class="medium">{{ artwork().medium }}</span>
+    </p>
+    <p class="location">{{ artwork().location }}</p>
+    <p class="description">{{ artwork().description }}</p>
+  </figcaption>
+</figure>
