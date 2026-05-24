@@ -1,32 +1,45 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { map, switchMap } from 'rxjs';
-import { BaroqueApiService } from '../../services/baroque-api.service';
-import { ArtworkCardComponent } from '../artwork-card/artwork-card.component';
+import { switchMap, map } from 'rxjs';
+import { ApiService } from '../../services/baroque-api.service';
 import { ArtistCardComponent } from '../artist-card/artist-card.component';
+import { ArtworkCardComponent } from '../artwork-card/artwork-card.component';
+import { ArtworkLightboxComponent } from '../artwork-lightbox/artwork-lightbox.component';
+import { Artwork } from '../../models';
 
 @Component({
   selector: 'app-detail-panel',
   standalone: true,
-  imports: [RouterLink, ArtworkCardComponent, ArtistCardComponent],
+  imports: [
+    RouterLink,
+    ArtistCardComponent,
+    ArtworkCardComponent,
+    ArtworkLightboxComponent
+  ],
   templateUrl: './detail-panel.component.html',
   styleUrl: './detail-panel.component.css'
 })
 export class DetailPanelComponent {
   private route = inject(ActivatedRoute);
-  private api = inject(BaroqueApiService);
+  private api = inject(ApiService);
 
-  private id$ = this.route.paramMap.pipe(
-    map(p => Number(p.get('id')))
-  );
+  selectedArtwork: Artwork | null = null;
 
   artist = toSignal(
-    this.id$.pipe(switchMap(id => this.api.getArtist(id)))
+    this.route.paramMap.pipe(
+      map(params => Number(params.get('id'))),
+      switchMap(id => this.api.getArtist(id))
+    )
   );
 
-  contemporaries = toSignal(
-    this.id$.pipe(switchMap(id => this.api.getContemporaries(id))),
-    { initialValue: [] as any[] }
-  );
+  contemporaries = computed(() => this.artist()?.contemporaries ?? []);
+
+  openArtwork(artwork: Artwork) {
+    this.selectedArtwork = artwork;
+  }
+
+  closeArtwork() {
+    this.selectedArtwork = null;
+  }
 }

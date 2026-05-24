@@ -1,0 +1,37 @@
+<div class="backdrop" (click)="close()">
+  <section class="lightbox" role="dialog" aria-modal="true" [attr.aria-label]="artwork.title" (click)="$event.stopPropagation()">
+    <button class="close" type="button" aria-label="Close artwork preview" (click)="close()">
+      &times;
+    </button>
+
+    <div class="image-panel">
+      <img [src]="artwork.image_url" [alt]="artwork.title" />
+    </div>
+
+    <aside class="info-panel">
+      <p class="eyebrow">Artwork</p>
+      <h2>{{ artwork.title }}</h2>
+
+      <dl class="metadata">
+        <div>
+          <dt>Date</dt>
+          <dd>{{ artwork.year_created }}</dd>
+        </div>
+
+        <div>
+          <dt>Medium</dt>
+          <dd>{{ artwork.medium }}</dd>
+        </div>
+
+        <div>
+          <dt>Location</dt>
+          <dd>{{ artwork.location }}</dd>
+        </div>
+      </dl>
+
+      @if (artwork.description) {
+        <p class="description">{{ artwork.description }}</p>
+      }
+    </aside>
+  </section>
+</div>

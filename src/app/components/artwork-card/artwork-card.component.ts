@@ -1,13 +1,17 @@
-import { Component, input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Artwork } from '../../models';
 
 @Component({
   selector: 'app-artwork-card',
   standalone: true,
-  imports: [],
   templateUrl: './artwork-card.component.html',
   styleUrl: './artwork-card.component.css'
 })
 export class ArtworkCardComponent {
-  artwork = input.required<Artwork>();
+  @Input({ required: true }) artwork!: Artwork;
+  @Output() selected = new EventEmitter<Artwork>();
+
+  open() {
+    this.selected.emit(this.artwork);
+  }
 }
