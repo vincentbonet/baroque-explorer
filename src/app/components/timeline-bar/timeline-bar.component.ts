@@ -3,7 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map } from 'rxjs';
 import { BaroqueApiService } from '../../services/baroque-api.service';
-import { Period } from '../../models';
 
 @Component({
   selector: 'app-timeline-bar',
@@ -16,7 +15,7 @@ export class TimelineBarComponent {
   router = inject(Router);
   private api = inject(BaroqueApiService);
 
-  periods = toSignal(this.api.getPeriods(), { initialValue: [] as Period[] });
+  periods = toSignal(this.api.getTimelineMeta(), { initialValue: [] as any[] });
 
   hoveredDecade = signal<number | null>(null);
 
@@ -31,10 +30,13 @@ export class TimelineBarComponent {
     { initialValue: null as number | null }
   );
 
-  dotSize(index: number, total: number): number {
-    const mid = total / 2;
-    const dist = Math.abs(index - mid);
-    const normalized = 1 - dist / mid;
-    return 8 + normalized * 6;
+  dotSize(density: number, maxDensity: number): number {
+    const normalized = density / maxDensity;
+    return 7 + normalized * 10; // range: 7px to 17px
+  }
+
+  maxDensity(): number {
+    const all = this.periods();
+    return all.length ? Math.max(...all.map((p: any) => p.density)) : 1;
   }
 }

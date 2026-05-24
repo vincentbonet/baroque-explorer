@@ -150,3 +150,30 @@
     transform: translateX(-50%) translateY(0);
   }
 }
+
+.tooltip-stats {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.7rem;
+  color: var(--gold-dim);
+  margin-top: 0.2rem;
+}
+
+.tooltip-summary {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.map-link {
+  flex-shrink: 0;
+  margin-left: 1.5rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.map-link:hover {
+  color: var(--gold);
+}

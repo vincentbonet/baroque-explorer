@@ -13,6 +13,12 @@ export const routes: Routes = [
             .then(m => m.TimelineComponent)
       },
       {
+        path: 'map',
+        loadComponent: () =>
+          import('./components/map/map.component')
+            .then(m => m.MapComponent)
+      },
+      {
         path: 'decade/:year',
         loadComponent: () =>
           import('./components/decade-view/decade-view.component')

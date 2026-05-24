@@ -18,6 +18,19 @@
           }
         </div>
       </section>
+    @if (contemporaries().length > 0) {
+      <section class="section">
+        <h2>Contemporaries</h2>
+        <p class="section-note">
+          Artists active during overlapping decades
+        </p>
+        <div class="grid">
+          @for (artist of contemporaries(); track artist.id) {
+            <app-artist-card [artist]="artist" />
+          }
+        </div>
+  </section>
+}
     } @else {
       <p class="empty">No artworks recorded for this artist.</p>
     }

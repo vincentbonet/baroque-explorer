@@ -31,6 +31,18 @@ export class BaroqueApiService {
     return this.http.get<Artwork>(`${this.base}/artworks/${id}`);
   }
 
+  getTimelineMeta(): Observable<any[]> {
+  return this.http.get<any[]>(`${this.base}/timeline-meta`);
+  } 
+
+  getContemporaries(artistId: number): Observable<Artist[]> {
+    return this.http.get<Artist[]>(`${this.base}/artists/${artistId}/contemporaries`);
+  }
+
+  getMapArtists(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.base}/map/artists`);
+  }
+
   getEvents(decade?: number): Observable<Event[]> {
     const url = decade
       ? `${this.base}/events?decade=${decade}`

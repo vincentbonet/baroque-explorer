@@ -4,7 +4,7 @@
 
       <div class="line"></div>
 
-      @for (period of periods(); track period.decade; let i = $index) {
+      @for (period of periods(); track period.decade) {
         <div
           class="stop"
           [class.active]="activeDecade() === period.decade"
@@ -15,8 +15,8 @@
         >
           <div
             class="dot"
-            [style.width.px]="dotSize(i, periods().length)"
-            [style.height.px]="dotSize(i, periods().length)"
+            [style.width.px]="dotSize(period.density, maxDensity())"
+            [style.height.px]="dotSize(period.density, maxDensity())"
           ></div>
 
           <span class="decade-label">{{ period.decade }}s</span>
@@ -24,7 +24,11 @@
           @if (hoveredDecade() === period.decade) {
             <div class="tooltip">
               <span class="tooltip-year">{{ period.decade }}s</span>
-              <span class="tooltip-text">{{ period.summary }}</span>
+              <span class="tooltip-summary">{{ period.summary }}</span>
+              <div class="tooltip-stats">
+                <span>{{ period.artist_count }} artists</span>
+                <span>{{ period.event_count }} events</span>
+              </div>
             </div>
           }
         </div>
@@ -32,4 +36,10 @@
 
     </div>
   </div>
+
+  <a class="map-link" routerLink="/map" title="View artist map">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+    </svg>
+  </a>
 </nav>

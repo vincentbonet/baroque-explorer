@@ -81,3 +81,10 @@
   color: var(--text-muted);
   font-style: italic;
 }
+
+.section-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: -0.75rem;
+}
