@@ -1,13 +1,44 @@
 .shell {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   height: 100dvh;
   overflow: hidden;
 }
 
+.shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 22%, rgba(233, 184, 84, 0.11), transparent 18rem),
+    radial-gradient(circle at 92% 68%, rgba(155, 47, 30, 0.16), transparent 24rem);
+  filter: blur(4px);
+  animation: candleDrift 10s ease-in-out infinite alternate;
+}
+
 .content {
+  position: relative;
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;
+}
+
+.content::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 90px;
+  height: 120px;
+  pointer-events: none;
+  background: linear-gradient(transparent, rgba(8, 6, 5, 0.92));
+}
+
+@keyframes candleDrift {
+  from { opacity: 0.55; transform: translate3d(-1rem, -0.4rem, 0) scale(1); }
+  to { opacity: 0.9; transform: translate3d(1rem, 0.8rem, 0) scale(1.06); }
 }

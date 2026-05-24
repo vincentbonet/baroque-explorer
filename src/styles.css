@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -7,21 +7,31 @@
 }
 
 :root {
-  --bg:           #0d0b0a;
-  --surface:      #1a1512;
-  --surface-2:    #241d17;
-  --border:       #2e2318;
-  --gold:         #c9a84c;
-  --gold-bright:  #e8c97e;
-  --gold-dim:     #7a6030;
-  --text:         #e8d8c0;
-  --text-muted:   #8a7660;
-  --red:          #8b2020;
+  --bg: #080605;
+  --bg-deep: #030202;
+  --surface: rgba(27, 20, 15, 0.78);
+  --surface-2: rgba(41, 30, 21, 0.86);
+  --surface-3: rgba(67, 45, 27, 0.68);
+  --border: rgba(205, 155, 68, 0.18);
+  --border-strong: rgba(232, 201, 126, 0.38);
+  --gold: #c9a84c;
+  --gold-bright: #f1d28a;
+  --gold-dim: #87682d;
+  --text: #eee0c8;
+  --text-muted: #a38a69;
+  --red: #8b2020;
+  --ember: #bf5b2c;
+  --shadow: rgba(0, 0, 0, 0.58);
+  --glow: rgba(232, 175, 82, 0.24);
 }
 
 html, body {
   height: 100%;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 20% 15%, rgba(164, 82, 35, 0.16), transparent 28rem),
+    radial-gradient(circle at 82% 12%, rgba(232, 201, 126, 0.12), transparent 24rem),
+    radial-gradient(circle at 50% 120%, rgba(103, 29, 16, 0.32), transparent 34rem),
+    linear-gradient(135deg, var(--bg-deep), var(--bg) 48%, #120b08);
   color: var(--text);
   font-family: 'Inter', sans-serif;
   font-size: 16px;
@@ -29,7 +39,47 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.014) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at center, black, transparent 78%);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.72) 100%);
+}
+
 h1, h2, h3 {
   font-family: 'Playfair Display', serif;
   line-height: 1.2;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  color: #1b1209;
+  background: var(--gold-bright);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
 }

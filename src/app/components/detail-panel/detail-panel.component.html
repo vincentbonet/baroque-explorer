@@ -3,9 +3,11 @@
 
   @if (artist(); as a) {
     <header class="hero">
-      <h1>{{ a.name }}</h1>
-      <p class="dates">{{ a.birth_year }} &ndash; {{ a.death_year }}</p>
-      <p class="style">{{ a.nationality }} &middot; {{ a.style }} Baroque</p>
+      <div class="identity">
+        <p class="dates">{{ a.birth_year }} &ndash; {{ a.death_year }}</p>
+        <h1>{{ a.name }}</h1>
+        <p class="style">{{ a.nationality }} &middot; {{ a.style }} Baroque</p>
+      </div>
       <p class="bio">{{ a.bio }}</p>
     </header>
 
@@ -18,21 +20,20 @@
           }
         </div>
       </section>
+    } @else {
+      <p class="empty">No artworks recorded for this artist.</p>
+    }
+
     @if (contemporaries().length > 0) {
       <section class="section">
         <h2>Contemporaries</h2>
-        <p class="section-note">
-          Artists active during overlapping decades
-        </p>
+        <p class="section-note">Artists active during overlapping decades</p>
         <div class="grid">
           @for (artist of contemporaries(); track artist.id) {
             <app-artist-card [artist]="artist" />
           }
         </div>
-  </section>
-}
-    } @else {
-      <p class="empty">No artworks recorded for this artist.</p>
+      </section>
     }
   } @else {
     <p class="loading">Loading&hellip;</p>

@@ -171,7 +171,7 @@ export class MapComponent implements OnInit, OnDestroy {
               style="width:100%;height:90px;object-fit:cover;border-radius:2px;margin-bottom:8px"
             />
           ` : ''}
-          
+          <a
             href="/artist/${artist.id}"
             style="font-size:0.8rem;color:#c9a84c;text-decoration:none"
           >
