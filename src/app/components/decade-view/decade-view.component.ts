@@ -25,8 +25,7 @@ export class DecadeViewComponent {
   decade = toSignal(this.decade$, { initialValue: 0 });
 
   period = toSignal(
-    this.decade$.pipe(switchMap(d => this.api.getPeriod(d))),
-    { initialValue: null as Period | null }
+    this.decade$.pipe(switchMap(d => this.api.getPeriod(d)))
   );
 
   artists = toSignal(
