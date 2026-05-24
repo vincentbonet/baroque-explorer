@@ -1,1 +1,30 @@
+.badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.45rem 0.85rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 2px;
+  cursor: help;
+  transition: border-color 0.2s, background 0.2s;
+}
 
+.badge:hover {
+  border-color: var(--border);
+  border-left-color: var(--gold);
+  background: var(--surface);
+}
+
+.year {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.title {
+  color: var(--text);
+  font-size: 0.85rem;
+}
