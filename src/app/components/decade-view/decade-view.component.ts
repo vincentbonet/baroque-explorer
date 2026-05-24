@@ -3,16 +3,22 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map, switchMap } from 'rxjs';
 import { BaroqueApiService } from '../../services/baroque-api.service';
-import { Artist, Event, Period } from '../../models';
+import { Artist, Event, Artwork } from '../../models';
 import { ArtistCardComponent } from '../artist-card/artist-card.component';
+import { ArtworkCardComponent } from '../artwork-card/artwork-card.component';
 import { ArtworkLightboxComponent } from '../artwork-lightbox/artwork-lightbox.component';
-import { Artwork } from '../../models';
 import { EventBadgeComponent } from '../event-badge/event-badge.component';
 
 @Component({
   selector: 'app-decade-view',
   standalone: true,
-  imports: [RouterLink, ArtistCardComponent, EventBadgeComponent],
+  imports: [
+    RouterLink,
+    ArtistCardComponent,
+    ArtworkCardComponent,
+    EventBadgeComponent,
+    ArtworkLightboxComponent
+  ],
   templateUrl: './decade-view.component.html',
   styleUrl: './decade-view.component.css'
 })
@@ -45,7 +51,7 @@ export class DecadeViewComponent {
   openArtwork(artwork: Artwork) {
     this.selectedArtwork = artwork;
   }
-  
+
   closeArtwork() {
     this.selectedArtwork = null;
   }

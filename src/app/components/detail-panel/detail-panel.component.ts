@@ -27,15 +27,19 @@ export class DetailPanelComponent {
   selectedArtwork: Artwork | null = null;
 
   private id$ = this.route.paramMap.pipe(
-    map(p => Number(p.get('id')))
+    map(params => Number(params.get('id')))
   );
 
   artist = toSignal(
-    this.id$.pipe(switchMap(id => this.api.getArtist(id)))
+    this.id$.pipe(
+      switchMap(id => this.api.getArtist(id))
+    )
   );
 
   contemporaries = toSignal(
-    this.id$.pipe(switchMap(id => this.api.getContemporaries(id))),
+    this.id$.pipe(
+      switchMap(id => this.api.getContemporaries(id))
+    ),
     { initialValue: [] as Artist[] }
   );
 
